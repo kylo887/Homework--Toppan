@@ -1,0 +1,105 @@
+   Sales order Form                     Unnamed: 1  ... Unnamed: 7 Unnamed: 8
+0           Project           SalesforceAutomation  ...        NaN        NaN
+1             RefOF                       plm/1983  ...        NaN        NaN
+2              Date            2023-02-23 00:00:00  ...        NaN        NaN
+3     Supplier shop                          Dummy  ...        NaN        NaN
+4  P.O. number EMEA  5255562029/40005557423/P7YY81  ...        NaN        NaN
+
+[5 rows x 9 columns]
+THE EXCEL SHEET LOADS OKAY
+
+
+THE VALUES OF THE HEADERS IN THE SALES ORDER FORM ARE 
+0             Project
+1               RefOF
+2                Date
+3       Supplier shop
+4    P.O. number EMEA
+5         Data format
+6        Data support
+dtype: object.
+
+
+EXTRACTING ALL THE FIELDS AND SUBFIELDS FROM SOURCE INTO CALLABLE LISTS/VARIABLES.......
+
+The name of the Project is SalesforceAutomation
+The name of the RefOF is plm/1983
+The name of the Date is 2023-02-23 00:00:00
+The name of the Supplier shop is Dummy
+The name of the P.O. number EMEA is 5255562029/40005557423/P7YY81
+The name of the Data format is TXT
+The name of the Data support is HTTP
+The Contact names of the suppliers are ('Johnson Hopkins', 'Supplier Jin')
+The Contact phone of the suppliers are ('04 44 44 55 66', '04 33 88 99 55')
+The Contact mail of the suppliers are ('Johnson.hopkins@john.com', 'supplier.jin@jin.com')
+
+The Suppliers Number is FGH/XYZ1-NN3ORJR7
+The Suppliers Lot number is Y 6X LOT900 PART 9
+The Suppliers Part Ref is PR 190444 LOT90 333 3434FDGG 
+The Suppliers To Deliver is True
+The Suppliers Priority is P1
+The Suppliers Design On box is Top left
+The Suppliers Internal ref is 6X
+The Suppliers Logo is N/A
+The Suppliers Title on supplier is Top left down
+
+The title Supplier Title is FGH/XYZ1-NN3ORJR7
+The title FileName is DKSFDSK63456CTC32490223.TXT
+The title Scale Unit (µm) is 0.0009
+The title Dimension (µm) is X=0
+Y=0
+The title Supplier Title is FGH/XYZ1-NN3ORJR7
+The title FileName is 4TTC435666CDFG353.TAR
+The title Scale Unit (µm) is 0.7
+The title Dimension (µm) is X=0
+Y=0
+The title Supplier Title is FGH/XYZ1-NN3ORJR7
+The title FileName is DRTERT5464TGGT2490223.ZIP
+The title Scale Unit (µm) is 0.004
+The title Dimension (µm) is X=0
+Y=0
+
+The Quality Supplier Title is FGH/XYZ1-NN3ORJR7
+The Quality Mesure (µm) is 1500
+The Quality Opacity is Dark
+The Quality Type is Space
+The Quality Filename is DKSFDSKJF932490223.TXT
+The Quality Supplier Title is FGH/XYZ1-NN3ORJR7
+The Quality Mesure (µm) is 1500
+The Quality Opacity is Clear
+The Quality Type is Hole
+The Quality Filename is 4TTC435666CDFG353.TAR
+
+
+PARSING THE TEST_DATA USING REGULAR EXPRESSIONS.........................
+
+the contents in D4 cell are Data=correct on the support
+the contents in D5 cell are coordinates at supplier = as per documentation
+The parsed values using "=" split are ['Data', 'correct on the support']
+The parsed values using "=" split are ['coordinates at supplier ', ' as per documentation']
+
+THE VALUES OF CELL_VALUE_1 ARE ('SalesforceAutomation', 'plm/1983', datetime.datetime(2023, 2, 23, 0, 0), 'Dummy', '5255562029/40005557423/P7YY81')
+The parsed cell value contents ['Salesforce', 'Automation']
+The parsed cell value contents ['/', '1983']
+Skipping item 2023-02-23 00:00:00 because it's not a string
+The parsed cell value contents ['Dummy']
+The parsed cell value contents ['5255562029', '/', '40005557423', '/', 'P', '7YY81']
+
+FINDING EMAILS IN THE SPREADSHEET........................................
+
+Found match in column Unnamed: 2, row 7: Johnson.hopkins@john.com
+Found match in column Unnamed: 2, row 8: supplier.jin@jin.com
+
+SUPPLIER SECTION.........................................................
+
+THE VALUES OF SUBFIELDS  ARE ['FGH/XYZ1-NN3ORJR7', 'Y 6X LOT900 PART 9', 'PR 190444 LOT90 333 3434FDGG ', True, 'P1', 'Top left', '6X', 'N/A', 'Top left down']
+The subparts parsed from col_values are ['FGH/XYZ1-NN3ORJR7']
+The subparts parsed from col_values are ['Y', '6X', 'LOT900', 'PART', '9']
+The subparts parsed from col_values are ['PR', '190444', 'LOT90', '333', '3434FDGG']
+The subparts parsed from col_values are ['True']
+The boolean value is True
+The subparts parsed from col_values are ['P1']
+The subparts parsed from col_values are ['Top', 'left']
+The subparts parsed from col_values are ['6X']
+The subparts parsed from col_values are ['N/A']
+The subparts parsed from col_values are ['Top', 'left', 'down']
