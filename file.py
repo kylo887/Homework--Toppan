@@ -1,4 +1,4 @@
-### Program to parse and split the three parts of the excel file to have the fields and subfields accessible
+### Program to parse and split the four parts of the excel file to have the fields and subfields accessible
 ## Field 1 - Sales Order form
 ## Field 2 - Supplier
 ## Field 3 - Files
@@ -21,7 +21,7 @@ import pandas as pd
 from openpyxl import load_workbook
 import re
 import datetime
-from tabulate import tabulate
+#from tabulate import tabulate
 
 # loading the workbook
 workbook = load_workbook(filename='Test_data.xlsx')
@@ -49,8 +49,9 @@ reader = pd.ExcelFile(file, engine = 'openpyxl')
 input_data = pd.read_excel(reader,sheet_name=sheet,nrows = 6, keep_default_na=False, na_values=['NULL'])
 # Here we have the arguments 
 # - nrows(mentions how many rows to skip at the start of the file)
-# - skiprows(nrows=6 to load the next 6 rows into a DataFrame) The number can be varied based on SPECIFIC requirements
+# - skiprows - The number can be varied based on SPECIFIC requirements
 # - If keep_default_na is False, and na_values are specified, only the NaN values specified na_values are used for parsing.
+
 headers_0 = input_data['Sales order Form']
 input_data_1 = pd.read_excel(reader, sheet_name=sheet, nrows = 2, usecols = [3,4], keep_default_na=False, na_values=['NULL'])
 headers_1 = input_data_1.iloc[:, 0].rename('Sales order Form_a')
@@ -185,7 +186,7 @@ print (f'THE VALUES OF CELL_VALUE_1 ARE {cell_value_1}')
 
 for item in cell_value_1:
     if isinstance(item, str):
-        # Parse based on spaces, periods, capital letters, forward slash, and digits
+        # Parse based on spaces, periods, uppercase  letters, forward slash, and digits
         parsed = re.findall(r'[A-Z][a-z]*|[A-Z0-9]+|[./]+|[0-9]+', item)
         print(f'The parsed cell value contents {parsed}')
     else:
